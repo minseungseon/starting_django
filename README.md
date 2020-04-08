@@ -5,12 +5,12 @@
 모두 코로나 조심하시고 코오딩도 노오력 하는 여러분이 되시기 바랍니다 ❤️  
 
 ## 실습 파일 안내  
->> notes 파일 안에 있습니다! 
+> notes 파일 안에 있습니다! 
 ### 1. 프로젝트 시작 및 기본 설정 안내 파일  
-from_the_scratch.md 를 참고하시면 됩니다!  
+`from_the_scratch.md` 를 참고하시면 됩니다!  
 ### 2. html 파일 왔다갔다 하기  
-creating_link.md 를 참고하시면 됩니다!  
+creating_link.md` 를 참고하시면 됩니다!  
 ### 3. 템플릿 상속 안내 파일  
-url_extension.md 를 참고하시면 됩니다!  
+url_extension.md` 를 참고하시면 됩니다!  
 ### 4. url 관리 안내 파일  
-url_include.md 를 참고하시면 됩니다!  
+url_include.md` 를 참고하시면 됩니다!  
