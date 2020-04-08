@@ -55,6 +55,55 @@ $cd 폴더이름
 ```python  
 $python3 manage.py startapp 앱이름  
 ``` 
-
+  
+## 새로운 앱 등록하기  
+**절대 잊어버려서는 안되는 단계**입니다!  
+새로운 앱을 만들었다면 **무조건** 프로젝트에게 '새로운 앱을 만들었다' 라는 것을 알려야합니다.  
+따라서 프로젝트의 `settings.py` 에서 app을 추가해주는 코드를 작성합니다.  
+  
+```python  
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'start_django.apps.StartDjangoConfig', ##추가한 코드
+]  
+``` 
+저는 start_django 라는 새로운 앱을 만들어서 위와 같이 써주었습니다.  
+이름을 어떤곳에서 대문자로 쓰고, 소문자로 써야하는지는 터미널 창에서 에러가 나면 자세히 알려주기 때문에 잘 읽어보면서 에러를 해결해나가길 바랍니다.  
 이렇게 하면 새로운 프로젝트와 앱까지 구현이 됩니다! 
   
+## MTV 간단하게 구현해보기  
+Model-Templates-View 개념은 잘 이해하셨겠죠? 잘 이해가 안되셨다면 구글링 고고!  
+저는 보통 아래와 같이 작업을 합니다.  
+1. 앱에 `templates 폴더` 만들어주기  
+2. 그 안에 화면에 띄울 `.html파일` 만들어주기  
+3. `views.py`에 새로 만든 템플릿들 띄우는 함수 작성하기  
+4. `urls.py`에 경로 추가해주기  
+5. `$python3 manage.py runserver`  
+
+**3번**에 해당하는 함수는 다음과 같습니다.  
+```python  
+#프로젝트.앱.views.py
+def home(request):
+    return render(request, 'home.html')  
+  
+#새로운 html 파일을 추가한다면 그 아래에 하나 더 추가해주면 됩니다!  
+def profile(request):
+    return render(request, 'profile.html')  
+```  
+**4번**에 대항하는 코드는 다음과 같습니다.  
+```python  
+#프로젝트.프로젝트폴더.urls.py  
+from django.contrib import admin
+from django.urls import path
+import start_django.views  ##추가된 코드
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', start_django.views.home, name="home"), ##추가된 코드 
+    path('profile/', start_django.views.profile, name="profile"), ##추가된 코드 
+```  
