@@ -8,7 +8,7 @@ $python3 -m venv myvenv
   
   
 #맥기준 
-$python3 source myvenv/bin/activate  
+$source myvenv/bin/activate  
   
   
 #윈도우는 아마 myvenv/Scripts/activate 일거에요!  
